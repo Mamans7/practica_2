@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class=" row p-4 bg-info">
+    <div class="col-6 p-4">
+        <h1 class="text-center">Registro de Libros</h1>
+        <br>
+        <form action="" method="post">
+            <div class="row">
+                <label class="col-4" for="">Título: </label>
+                <input class="col-6" type="text" name="titulo" placeholder="Título" required>
+            </div>
+            <br>
+            <div class="row">
+                <label class="col-4" for="">Autor: </label>
+                <input class="col-6" type="text" name="autor" placeholder="Autor" required>
+            </div>
+            <br>
+            <div class="row">
+                <label class="col-4" for="">Resumen: </label>
+                <textarea class="col-6" name="resumen" id="" required></textarea>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-4">
+                    <p>Medio: </p>
+                </div>
+                <div class="col-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="fisico" name="medio" value="Físico" required>
+                        <label class="form-check-label" for="fisico">Físico</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="magnetico" name="medio" value="Magnético">
+                        <label class="form-check-label" for="magnetico">Mangético</label><br>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <label class="col-4" for=""></label>
+                <button class="col-6 ml-4 btn btn-success" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="col-6 p-4">
+        <div class="col-12">
+            {% if titulo and autor and resumen and medio %}
+            <h3 class="text-center">Respuestas con <b>REQUEST</b></h3>
+            <table class="table table-primary">
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Resumen</th>
+                    <th>Medio</th>
+                </tr>
+                <tr>
+                    <td>{{ titulo }}</td>
+                    <td>{{ autor }}</td>
+                    <td>{{ resumen }}</td>
+                    <td>{{ medio }}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
+
+    </div>
+    <div class="row container">
+        <a name="" id="" class="p-2 btn btn-danger" href="{{ url_for ('index') }}" role="button">Volver al Inicio</a>
+    </div>
+</body>
+
+</html>
